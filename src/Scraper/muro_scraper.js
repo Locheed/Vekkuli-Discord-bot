@@ -13,14 +13,14 @@ module.exports = {
         const messageDateContent = messageDate.text();
     
         // Scrape four offers from MuroBBS Jimm's thread
-        const first = $('.messageContent span a').eq(0).attr('href');
-        const firstText = $('.messageContent span a').eq(0).text();
-        const second = $('.messageContent span a').eq(1).attr('href');
-        const secondText = $('.messageContent span a').eq(1).text();
-        const third = $('.messageContent span a').eq(2).attr('href');
-        const thirdText = $('.messageContent span a').eq(2).text();
-        const fourth = $('.messageContent span a').eq(3).attr('href');
-        const fourthText = $('.messageContent span a').eq(3).text();
+        const first = $('.messageContent span a').eq(0).attr('href') || '-';
+        const firstText = $('.messageContent span a').eq(0).text() || 'Ei tarjousta';
+        const second = $('.messageContent span a').eq(1).attr('href') || '-';
+        const secondText = $('.messageContent span a').eq(1).text() || 'Ei tarjousta';
+        const third = $('.messageContent span a').eq(2).attr('href') || '-';
+        const thirdText = $('.messageContent span a').eq(2).text() || 'Ei tarjousta';
+        const fourth = $('.messageContent span a').eq(3).attr('href') || '-';
+        const fourthText = $('.messageContent span a').eq(3).text() || 'Ei tarjousta';
         
         // Check if scrape contents date has changed
         if (offers || offers[8] != messageDateContent) {

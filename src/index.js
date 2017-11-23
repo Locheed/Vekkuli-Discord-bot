@@ -4,7 +4,6 @@ const schedule = require('node-schedule');
 const config = require('../config.json');
 
 
-
 const muroScraper = require('./Scraper/muro_scraper');
 const cdonScraper = require('./Scraper/cdon_scraper');
 
@@ -14,6 +13,7 @@ const cdonEmbeds = require('./Embeds/cdon_embed');
 const client = new Discord.Client();
 
 const prefix = '!';
+
 
 
 client.on('ready', () => {
@@ -75,6 +75,13 @@ client.on('message', message => {
 
   if (message.content.startsWith(prefix + 'cdon')) {
     cdonEmbeds.embed(client, offersCdon);
+  } else
+
+  if (message.content.startsWith(prefix + 'members')) {
+    const tags = client.users.map(u=> u.username).join(', ');
+    console.log(tags);
+    message.guild.channels.find("name", "bot-dev").send(tags);
+
   }
 });
 
